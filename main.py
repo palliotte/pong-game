@@ -8,17 +8,20 @@ directionX = randint(0, 4)
 basic.pause(200)
 
 def on_button_pressed_a():
-    if paddleA.get(Led LedSpriteProperty.X) > 0:
+    if paddleA.get(LedSpriteProperty.X) > 0:
         paddleA.change(LedSpriteProperty.X, -1)
         paddleB.change(LedSpriteProperty.X, -1)
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def on_button_pressed_b():
-    if paddleB.get(Led LedSpriteProperty.X) > 0:
+    if paddleB.get(LedSpriteProperty.X) < 4:
         paddleA.change(LedSpriteProperty.X, 1)
         paddleB.change(LedSpriteProperty.X, 1)
 input.on_button_pressed(Button.B, on_button_pressed_b)
 
 def on_forever():
-    pass
+    global directionX , directionY
+    ball.change(LedSpriteProperty.X,directionX)
+    ball.change(LedSpriteProperty.Y,directionY)
+    pause(200)
 basic.forever(on_forever)
