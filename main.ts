@@ -25,4 +25,10 @@ basic.forever(function on_forever() {
     ball.change(LedSpriteProperty.X, directionX)
     ball.change(LedSpriteProperty.Y, directionY)
     pause(200)
+    if (ball.isTouching(paddleA)) {
+        ball.change(LedSpriteProperty.Y, -1)
+        directionY = -1
+        directionX = randint(-1, 1)
+    }
+    
 })

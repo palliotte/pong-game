@@ -24,4 +24,8 @@ def on_forever():
     ball.change(LedSpriteProperty.X,directionX)
     ball.change(LedSpriteProperty.Y,directionY)
     pause(200)
+    if ball.is_touching(paddleA):
+        ball.change(LedSpriteProperty.Y, -1)
+        directionY = -1
+        directionX = randint(-1, 1)
 basic.forever(on_forever)
