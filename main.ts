@@ -29,6 +29,17 @@ basic.forever(function on_forever() {
         ball.change(LedSpriteProperty.Y, -1)
         directionY = -1
         directionX = randint(-1, 1)
+    } else if (ball.get(LedSpriteProperty.Y) >= 4) {
+        ball.set(LedSpriteProperty.Blink, 0)
+        basic.pause(2000)
+        game.gameOver()
     }
     
+    if (ball.get(LedSpriteProperty.X) <= 0) {
+        directionX = 1
+    } else if (ball.get(LedSpriteProperty.X) >= 4) {
+        directionX = -1
+    }
+    
+    basic.pause(100)
 })

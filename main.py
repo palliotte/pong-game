@@ -28,4 +28,13 @@ def on_forever():
         ball.change(LedSpriteProperty.Y, -1)
         directionY = -1
         directionX = randint(-1, 1)
+    elif ball.get(LedSpriteProperty.Y) >= 4:
+        ball.set(LedSpriteProperty.BLINK, 0)
+        basic.pause(2000)
+        game.game_over()
+    if ball.get(LedSpriteProperty.X) <= 0:
+        directionX = 1
+    elif ball.get(LedSpriteProperty.X) >= 4:
+        directionX = -1
+    basic.pause(100)
 basic.forever(on_forever)
